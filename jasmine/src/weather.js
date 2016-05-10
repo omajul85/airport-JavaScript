@@ -1,9 +1,11 @@
-Weather = function(){}
+Weather = function(){
+	this._PROBABILITY_OF_STORM = 0.25;
+}
 
 Weather.prototype.isStormy = function() {
-	if(Math.floor((Math.random() * 10) + 1) > 7){
-		return true;
-	} else {
+	if(Math.random() > this._PROBABILITY_OF_STORM) {
 		return false;
+	} else {
+		return true;
 	}
 };

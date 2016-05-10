@@ -8,12 +8,12 @@ describe('Weather', function(){
 	});
 
 	it('Gives stormy conditions sometimes', function(){
-		spyOn(Math, 'random').and.returnValue(1);
+		spyOn(Math, 'random').and.returnValue(0);
 		expect(weather.isStormy()).toBeTruthy();
 	});
 
 	it('Gives nice conditions sometimes', function(){
-		spyOn(Math, 'random').and.returnValue(0);
+		spyOn(Math, 'random').and.returnValue(1);
 		expect(weather.isStormy()).toBeFalsy();
 	});
 
