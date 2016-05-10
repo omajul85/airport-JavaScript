@@ -24,6 +24,12 @@ describe('Feature Test:', function(){
 			plane.takeoff();
 			expect(airport.planes()).not.toContain(plane);
 		});
+
+		it('Planes cannot land if airport is at maximum capacity', function(){
+			spyOn(airport, 'isFull').and.returnValue(true);
+			expect(function(){ plane.land(airport);}).toThrowError('cannot land: airport at maximum capacity');
+	    expect(airport.planes()).not.toContain(plane);
+		});
 	});
 
 	describe('when weather is stormy', function(){

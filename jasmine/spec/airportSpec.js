@@ -30,6 +30,13 @@ describe('Airport', function(){
 			airport.readyForTakeOff(plane);
 			expect(airport.planes()).toEqual([]);
 		});
+
+		it('does not receive planes when at maximum capacity', function(){
+			spyOn(airport, 'isFull').and.returnValue(true);
+			expect(function(){ 
+				airport.readyForLanding(plane);
+			}).toThrowError('cannot land: airport at maximum capacity');
+		});
 	});
 
 	describe('when weather is stormy',function(){
